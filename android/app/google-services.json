@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285410185583",
+    "project_id": "custrom-35415",
+    "storage_bucket": "custrom-35415.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285410185583:android:5ee557fcadc956e583d89a",
+        "android_client_info": {
+          "package_name": "com.example.app_role_based"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLCTpS-JCu8TimwndttQkPkludNFFi6kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

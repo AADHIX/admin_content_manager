@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Admin UID list ────────────────────────────────────────────────────
+    function isAdmin() {
+      return request.auth != null &&
+             request.auth.uid in [
+               'XUNrXGBTcndZf0SpGGD5N1FccYj2'
+               
+               
+               // Add more admin UIDs here, e.g.:
+               // 'ANOTHER_ADMIN_UID_HERE'
+             ];
+    }
+
+    // ── Any signed-in user ────────────────────────────────────────────────
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // ── Public content collection ─────────────────────────────────────────
+    // Path: app_data/public_content/items/{itemId}
+    match /app_data/public_content/items/{itemId} {
+      allow read: if isAuthenticated();
+      allow create: if isAdmin()
+                    && request.resource.data.keys().hasAll(['imageUrl', 'title', 'description'])
+                    && request.resource.data.imageUrl is string
+                    && request.resource.data.title is string
+                    && request.resource.data.description is string;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ── Parent container documents ────────────────────────────────────────
+    match /app_data/{document} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ── Deny everything else ──────────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
