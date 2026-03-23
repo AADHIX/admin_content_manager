@@ -400,49 +400,39 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             const SizedBox(height: 16),
 
             // Action Button
-            SizedBox(
-              width: double.infinity,
-              height: 46,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: isEditing
-                        ? [const Color(0xFFFF6B2C), const Color(0xFFFF9A5C)]
-                        : [const Color(0xFFFF6B2C), const Color(0xFFFF9A5C)],
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ElevatedButton.icon(
-                  onPressed: _isSubmitting
-                      ? null
-                      : (isEditing ? _updateContent : _addContent),
-                  icon: _isSubmitting
-                      ? const SizedBox(
-                          width: 18,
-                          height: 18,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 2,
-                          ),
-                        )
-                      : Icon(
-                          isEditing ? Icons.save_outlined : Icons.add,
-                          size: 20,
+            Container(
+              height: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 50),
+              child: ElevatedButton.icon(
+                onPressed: _isSubmitting
+                    ? null
+                    : (isEditing ? _updateContent : _addContent),
+                icon: _isSubmitting
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                          strokeWidth: 2,
                         ),
-                  label: Text(
-                    isEditing ? 'Update Content' : 'Add Content',
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
+                      )
+                    : Icon(
+                        isEditing ? Icons.save_outlined : Icons.add,
+                        size: 20,
+                      ),
+                label: Text(
+                  isEditing ? 'Update Content' : 'Add Content',
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
                   ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  shadowColor: Colors.transparent,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
               ),
