@@ -137,12 +137,14 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                'Are you sure you want to delete "${item.title}"? This action cannot be undone.',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color(0xFF9A7060),
-                  fontSize: 14,
+              Flexible(
+                child: Text(
+                  'Are you sure you want to delete "${item.title}"? This action cannot be undone.',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Color(0xFF9A7060),
+                    fontSize: 14,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -239,23 +241,35 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               ),
             ),
             const SizedBox(width: 10),
-            const Text(
-              'Dashboard',
-              style: TextStyle(
-                color: Color(0xFF1A0A00),
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+            const Flexible(
+              child: Text(
+                'Dashboard',
+                style: TextStyle(
+                  color: Color(0xFF1A0A00),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
         ),
         actions: [
-          TextButton.icon(
+          TextButton(
             onPressed: _logout,
-            icon: const Icon(Icons.logout, color: Color(0xFF9A7060), size: 18),
-            label: const Text(
-              'Logout',
-              style: TextStyle(color: Color(0xFF9A7060), fontSize: 14),
+            style: TextButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.logout, color: Color(0xFF9A7060), size: 18),
+                SizedBox(width: 4),
+                Text(
+                  'Logout',
+                  style: TextStyle(color: Color(0xFF9A7060), fontSize: 14),
+                ),
+              ],
             ),
           ),
           const SizedBox(width: 8),
@@ -264,13 +278,24 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       body: Column(
         children: [
           // ── Input Form ────────────────────────────────────
-          _buildInputForm(),
+          Flexible(
+            flex: 0,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 400),
+              child: SingleChildScrollView(
+                child: _buildInputForm(),
+              ),
+            ),
+          ),
 
           // ── Divider ───────────────────────────────────────
           Container(height: 1, color: const Color(0xFFEDD5C8)),
 
           // ── Content List ──────────────────────────────────
-          Expanded(child: _buildContentList()),
+          const Flexible(
+            flex: 1,
+            child: _ContentListView(),
+          ),
         ],
       ),
     );
@@ -285,6 +310,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               children: [
@@ -294,12 +320,15 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   size: 22,
                 ),
                 const SizedBox(width: 8),
-                Text(
-                  isEditing ? 'Edit Content' : 'Add New Content',
-                  style: const TextStyle(
-                    color: Color(0xFF1A0A00),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                Flexible(
+                  child: Text(
+                    isEditing ? 'Edit Content' : 'Add New Content',
+                    style: const TextStyle(
+                      color: Color(0xFF1A0A00),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 if (isEditing) ...[
@@ -472,10 +501,18 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       ),
     );
   }
+}
 
-  Widget _buildContentList() {
+// Separate widget for content list to better manage state and prevent rebuild issues
+class _ContentListView extends StatelessWidget {
+  const _ContentListView();
+
+  @override
+  Widget build(BuildContext context) {
+    final contentService = ContentService();
+
     return StreamBuilder<List<ContentItem>>(
-      stream: _contentService.getContentStream(),
+      stream: contentService.getContentStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -485,10 +522,13 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
 
         if (snapshot.hasError) {
           return Center(
-            child: Text(
-              'Error loading content:\n${snapshot.error}',
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Color(0xFFE53935)),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Error loading content:\n${snapshot.error}',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Color(0xFFE53935)),
+              ),
             ),
           );
         }
@@ -506,12 +546,15 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   color: Color(0xFFBFA090),
                 ),
                 SizedBox(height: 12),
-                Text(
-                  'No content yet.\nUse the form above to add some!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xFF9A7060),
-                    fontSize: 14,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Text(
+                    'No content yet.\nUse the form above to add some!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFF9A7060),
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ],
@@ -522,14 +565,18 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         return ListView.builder(
           padding: const EdgeInsets.all(16),
           itemCount: items.length,
-          itemBuilder: (context, index) => _buildContentCard(items[index]),
+          itemBuilder: (context, index) =>
+              _buildContentCard(context, items[index]),
         );
       },
     );
   }
 
-  Widget _buildContentCard(ContentItem item) {
-    final isCurrentlyEditing = _editingItem?.id == item.id;
+  Widget _buildContentCard(BuildContext context, ContentItem item) {
+    // Get parent state to check if this item is being edited
+    final parentState =
+        context.findAncestorStateOfType<_AdminDashboardScreenState>();
+    final isCurrentlyEditing = parentState?._editingItem?.id == item.id;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
@@ -553,6 +600,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           // Image
           ClipRRect(
@@ -602,6 +650,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             padding: const EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -614,13 +663,15 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     // Edit button
                     Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () => _populateForm(item),
+                        onTap: () => parentState?._populateForm(item),
                         borderRadius: BorderRadius.circular(8),
                         child: Container(
                           padding: const EdgeInsets.all(6),
@@ -642,7 +693,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () => _confirmAndDelete(item),
+                        onTap: () => parentState?._confirmAndDelete(item),
                         borderRadius: BorderRadius.circular(8),
                         child: Container(
                           padding: const EdgeInsets.all(6),
