@@ -30,7 +30,10 @@ A cross-platform Flutter app for role-based content management, powered by Fireb
 
 | Login | Admin Dashboard | User Dashboard |
 |:---:|:---:|:---:|
-| ![Login screen](screenshots/login.png) | ![Admin dashboard](screenshots/admin_dashboard.png) | ![User dashboard](screenshots/user_dashboard.png) |
+| ![Login screen]<img width="720" height="1600" alt="Screenshot_20260323-181041" src="https://github.com/user-attachments/assets/79a3990d-7a0a-4854-ae4b-3f08d8ffb765" />
+() | ![Admin dashboard](<img width="720" height="1600" alt="Screenshot_20260323-181330" src="https://github.com/user-attachments/assets/383db651-2c28-4e40-8d56-35fe91d3ebb4" />
+) | ![User dashboar<img width="720" height="1600" alt="Screenshot_20260323-181059" src="https://github.com/user-attachments/assets/d71d7001-e8cb-491b-85cf-da61c90b8832" />
+d]() |
 | Orange header with wave, email/password fields, show/hide password toggle | CRUD form (Image URL · Title · Description) + live content cards with edit/delete | "Content Hub" read-only card feed with image, title, and description |
 
 ---
