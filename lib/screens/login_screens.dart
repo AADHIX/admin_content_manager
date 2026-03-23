@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Brand
-                        const Row(),
+                        Row(),
                         SizedBox(height: 32),
                         // Heading
                         Text(
@@ -140,8 +140,8 @@ class _LoginScreenState extends State<LoginScreen>
                           'Welcome back ',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ],
@@ -442,11 +442,11 @@ class _OrangeTextField extends StatelessWidget {
 }
 
 // ─── Orange CTA Button ─────────────────────────────────────────────────────────
-
 class _OrangeButton extends StatelessWidget {
   final String label;
   final bool isLoading;
   final VoidCallback onPressed;
+  final double? width; // Added optional width parameter
 
   static const kOrange = Color(0xFFFF6B2C);
   static const kOrangeLight = Color(0xFFFF9A5C);
@@ -455,13 +455,15 @@ class _OrangeButton extends StatelessWidget {
     required this.label,
     required this.isLoading,
     required this.onPressed,
+    this.width, // Added width parameter
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 52,
+      width: width ??
+          double.infinity, // Use provided width or default to full width
+      height: 45,
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: const LinearGradient(

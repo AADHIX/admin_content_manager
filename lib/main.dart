@@ -30,8 +30,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xFFFF6B2C),
           brightness: Brightness.light,
           primary: const Color(0xFFFF6B2C),
-          background: const Color(0xFFFFF8F4),
-          surface: Colors.white,
+          surface: const Color(0xFFFFF8F4), // Replaced deprecated 'background'
         ),
         scaffoldBackgroundColor: const Color(0xFFFFF8F4),
         useMaterial3: true,

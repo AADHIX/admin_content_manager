@@ -60,7 +60,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
               style: TextStyle(
                   color: Color(0xFF000000),
                   fontSize: 16,
-                  fontWeight: FontWeight.w600), // was Colors.white70
+                  fontWeight: FontWeight.bold), // was Colors.white70
             ),
           ),
           const SizedBox(width: 8),

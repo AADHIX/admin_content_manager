@@ -115,26 +115,26 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: const Icon(
                     Icons.person_add_outlined,
                     size: 36,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 24),
                 const Text(
                   'Create Account',
                   style: TextStyle(
-                    color: Color(0xFF1A0A00), // was Colors.white
-                    fontSize: 28,
+                    color: Colors.black, // was Colors.white
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                     letterSpacing: -0.5,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 10),
                 const Text(
                   'Join us today',
                   style: TextStyle(
-                    color: Color(0xFF000000), // was Colors.white
-                    fontSize: 14,
-                  ),
+                      color: Color(0xFF000000), // was Colors.white
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800),
                 ),
                 const SizedBox(height: 36),
 
@@ -261,7 +261,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 // ── Sign-up Button ────────────────────────────
                 SizedBox(
                   width: double.infinity,
-                  height: 52,
+                  height: 45,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
@@ -301,7 +301,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               'Create Account',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
