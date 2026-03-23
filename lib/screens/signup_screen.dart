@@ -73,12 +73,13 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F1117),
+      backgroundColor: const Color(0xFFFFF8F4), // was 0xFF0F1117
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white70),
+          icon: const Icon(Icons.arrow_back_ios_new,
+              color: Color(0xFF9A7060)), // was Colors.white70
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -95,16 +96,19 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: 72,
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF3ECFCF), Color(0xFF6C63FF)],
+                      colors: [
+                        Color(0xFFFF9A5C),
+                        Color(0xFFFF6B2C)
+                      ], // was teal→purple
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
                     borderRadius: BorderRadius.circular(18),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
-                        color: const Color(0xFF3ECFCF).withOpacity(0.35),
+                        color: Color(0xFFFF6B2C), // was 0xFF3ECFCF flat
                         blurRadius: 20,
-                        offset: const Offset(0, 8),
+                        offset: Offset(0, 8),
                       ),
                     ],
                   ),
@@ -118,17 +122,17 @@ class _SignupScreenState extends State<SignupScreen> {
                 const Text(
                   'Create Account',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF1A0A00), // was Colors.white
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                     letterSpacing: -0.5,
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
+                const Text(
                   'Join us today',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.45),
+                    color: Color(0xFF9A7060), // was Colors.white
                     fontSize: 14,
                   ),
                 ),
@@ -167,7 +171,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             _obscurePassword
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            color: Colors.white54,
+                            color:
+                                const Color(0xFF9A7060), // was Colors.white54
                             size: 20,
                           ),
                           onPressed: () => setState(
@@ -196,7 +201,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             _obscureConfirm
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            color: Colors.white54,
+                            color:
+                                const Color(0xFF9A7060), // was Colors.white54
                             size: 20,
                           ),
                           onPressed: () => setState(
@@ -223,15 +229,16 @@ class _SignupScreenState extends State<SignupScreen> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.red.withOpacity(0.1),
+                      color: const Color(0xFFFFEEEE), // was Colors.red
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.red.withOpacity(0.3)),
+                      border: Border.all(
+                          color: const Color(0xFFFFCDD2)), // was Colors.red
                     ),
                     child: Row(
                       children: [
                         const Icon(
                           Icons.error_outline,
-                          color: Colors.redAccent,
+                          color: Color(0xFFE53935), // was Colors.redAccent
                           size: 18,
                         ),
                         const SizedBox(width: 8),
@@ -239,7 +246,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           child: Text(
                             _errorMessage!,
                             style: const TextStyle(
-                              color: Colors.redAccent,
+                              color: Color(0xFFB71C1C), // was Colors.redAccent
                               fontSize: 13,
                             ),
                           ),
@@ -258,14 +265,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [Color(0xFF3ECFCF), Color(0xFF6C63FF)],
+                        colors: [
+                          Color(0xFFFF9A5C),
+                          Color(0xFFFF6B2C)
+                        ], // was teal→purple
                       ),
                       borderRadius: BorderRadius.circular(14),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
-                          color: const Color(0xFF3ECFCF).withOpacity(0.35),
+                          color: Color(0xFFFF6B2C), // was 0xFF3ECFCF
                           blurRadius: 16,
-                          offset: const Offset(0, 6),
+                          offset: Offset(0, 6),
                         ),
                       ],
                     ),
@@ -305,10 +315,10 @@ class _SignupScreenState extends State<SignupScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Already have an account? ',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
+                        color: Color(0xFF9A7060), // was Colors.white
                         fontSize: 14,
                       ),
                     ),
@@ -317,7 +327,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: const Text(
                         'Sign In',
                         style: TextStyle(
-                          color: Color(0xFF6C63FF),
+                          color: Color(0xFFFF6B2C), // was 0xFF6C63FF
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
@@ -348,8 +358,8 @@ class _SignupScreenState extends State<SignupScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.7),
+          style: const TextStyle(
+            color: Color(0xFF1A0A00), // was Colors.white.withOpacity(0.7)
             fontSize: 13,
             fontWeight: FontWeight.w500,
           ),
@@ -360,41 +370,49 @@ class _SignupScreenState extends State<SignupScreen> {
           obscureText: obscureText,
           keyboardType: keyboardType,
           validator: validator,
-          style: const TextStyle(color: Colors.white, fontSize: 15),
+          style: const TextStyle(
+              color: Color(0xFF1A0A00), fontSize: 15), // was Colors.white
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.25),
+            hintStyle: const TextStyle(
+              color: Color(0xFF9A7060), // was Colors.white.withOpacity(0.25)
               fontSize: 15,
             ),
-            prefixIcon: Icon(icon, color: Colors.white38, size: 20),
+            prefixIcon: const Icon(Icons.email_outlined, // icon color below
+                color: Color(0xFF9A7060),
+                size: 20), // was Colors.white38
             suffixIcon: suffixIcon,
             filled: true,
-            fillColor: Colors.white.withOpacity(0.06),
+            fillColor:
+                const Color(0xFFFFF8F4), // was Colors.white.withOpacity(0.06)
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+              borderSide:
+                  const BorderSide(color: Color(0xFFEDD5C8)), // was white10%
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+              borderSide:
+                  const BorderSide(color: Color(0xFFEDD5C8)), // was white10%
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(
-                color: Color(0xFF6C63FF),
+                color: Color(0xFFFF6B2C), // was 0xFF6C63FF
                 width: 1.5,
               ),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.redAccent),
+              borderSide: const BorderSide(
+                  color: Color(0xFFE53935)), // was Colors.redAccent
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.redAccent),
+              borderSide: const BorderSide(
+                  color: Color(0xFFE53935)), // was Colors.redAccent
             ),
-            errorStyle: const TextStyle(color: Colors.redAccent, fontSize: 12),
+            errorStyle: const TextStyle(color: Color(0xFFE53935), fontSize: 12),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,
               vertical: 16,

@@ -55,7 +55,8 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? Colors.redAccent : const Color(0xFF6C63FF),
+        backgroundColor:
+            isError ? const Color(0xFFE53935) : const Color(0xFFFF6B2C),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
@@ -106,7 +107,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => Dialog(
-        backgroundColor: const Color(0xFF1A1D2E),
+        backgroundColor: const Color(0xFFFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -117,12 +118,12 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                 width: 56,
                 height: 56,
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.15),
+                  color: const Color(0xFFE53935).withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.delete_outline,
-                  color: Colors.redAccent,
+                  color: Color(0xFFE53935),
                   size: 28,
                 ),
               ),
@@ -130,7 +131,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               const Text(
                 'Delete Content',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xFF1A0A00),
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -139,8 +140,8 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               Text(
                 'Are you sure you want to delete "${item.title}"? This action cannot be undone.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.6),
+                style: const TextStyle(
+                  color: Color(0xFF9A7060),
                   fontSize: 14,
                 ),
               ),
@@ -151,7 +152,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     child: OutlinedButton(
                       onPressed: () => Navigator.of(ctx).pop(false),
                       style: OutlinedButton.styleFrom(
-                        side: BorderSide(color: Colors.white.withOpacity(0.2)),
+                        side: const BorderSide(color: Color(0xFFEDD5C8)),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -159,7 +160,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       ),
                       child: const Text(
                         'Cancel',
-                        style: TextStyle(color: Colors.white70),
+                        style: TextStyle(color: Color(0xFF9A7060)),
                       ),
                     ),
                   ),
@@ -168,7 +169,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     child: ElevatedButton(
                       onPressed: () => Navigator.of(ctx).pop(true),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.redAccent,
+                        backgroundColor: const Color(0xFFE53935),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -213,9 +214,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F1117),
+      backgroundColor: const Color(0xFFFFF8F4),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1A1D2E),
+        backgroundColor: const Color(0xFFFFFFFF),
         elevation: 0,
         title: Row(
           children: [
@@ -223,7 +224,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF6C63FF), Color(0xFF3ECFCF)],
+                  colors: [Color(0xFFFF6B2C), Color(0xFFFF9A5C)],
                 ),
                 borderRadius: BorderRadius.circular(6),
               ),
@@ -241,7 +242,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             const Text(
               'Dashboard',
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFF1A0A00),
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -251,10 +252,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         actions: [
           TextButton.icon(
             onPressed: _logout,
-            icon: const Icon(Icons.logout, color: Colors.white70, size: 18),
+            icon: const Icon(Icons.logout, color: Color(0xFF9A7060), size: 18),
             label: const Text(
               'Logout',
-              style: TextStyle(color: Colors.white70, fontSize: 14),
+              style: TextStyle(color: Color(0xFF9A7060), fontSize: 14),
             ),
           ),
           const SizedBox(width: 8),
@@ -266,7 +267,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
           _buildInputForm(),
 
           // ── Divider ───────────────────────────────────────
-          Container(height: 1, color: Colors.white.withOpacity(0.08)),
+          Container(height: 1, color: const Color(0xFFEDD5C8)),
 
           // ── Content List ──────────────────────────────────
           Expanded(child: _buildContentList()),
@@ -278,7 +279,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
   Widget _buildInputForm() {
     final isEditing = _editingItem != null;
     return Container(
-      color: const Color(0xFF1A1D2E),
+      color: const Color(0xFFFFFFFF),
       padding: const EdgeInsets.all(20),
       child: Form(
         key: _formKey,
@@ -289,14 +290,14 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               children: [
                 Icon(
                   isEditing ? Icons.edit_note : Icons.add_circle_outline,
-                  color: const Color(0xFF6C63FF),
+                  color: const Color(0xFFFF6B2C),
                   size: 22,
                 ),
                 const SizedBox(width: 8),
                 Text(
                   isEditing ? 'Edit Content' : 'Add New Content',
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF1A0A00),
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
@@ -307,7 +308,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     onPressed: _clearForm,
                     child: const Text(
                       'Cancel',
-                      style: TextStyle(color: Colors.white54, fontSize: 13),
+                      style: TextStyle(color: Color(0xFF9A7060), fontSize: 13),
                     ),
                   ),
                 ],
@@ -369,8 +370,8 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: isEditing
-                        ? [const Color(0xFFFF6B6B), const Color(0xFFFF8E53)]
-                        : [const Color(0xFF6C63FF), const Color(0xFF3ECFCF)],
+                        ? [const Color(0xFFFF6B2C), const Color(0xFFFF9A5C)]
+                        : [const Color(0xFFFF6B2C), const Color(0xFFFF9A5C)],
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -427,42 +428,42 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       controller: controller,
       maxLines: maxLines,
       validator: validator,
-      style: const TextStyle(color: Colors.white, fontSize: 14),
+      style: const TextStyle(color: Color(0xFF1A0A00), fontSize: 14),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(
-          color: Colors.white.withOpacity(0.5),
+        labelStyle: const TextStyle(
+          color: Color(0xFF9A7060),
           fontSize: 13,
         ),
         hintText: hint,
-        hintStyle: TextStyle(
-          color: Colors.white.withOpacity(0.2),
+        hintStyle: const TextStyle(
+          color: Color(0xFFBFA090),
           fontSize: 14,
         ),
-        prefixIcon: Icon(icon, color: Colors.white38, size: 20),
+        prefixIcon: Icon(icon, color: const Color(0xFF9A7060), size: 20),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.05),
+        fillColor: const Color(0xFFFFF8F4),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+          borderSide: const BorderSide(color: Color(0xFFEDD5C8)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+          borderSide: const BorderSide(color: Color(0xFFEDD5C8)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFF6C63FF), width: 1.5),
+          borderSide: const BorderSide(color: Color(0xFFFF6B2C), width: 1.5),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Colors.redAccent),
+          borderSide: const BorderSide(color: Color(0xFFE53935)),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Colors.redAccent),
+          borderSide: const BorderSide(color: Color(0xFFE53935)),
         ),
-        errorStyle: const TextStyle(color: Colors.redAccent, fontSize: 11),
+        errorStyle: const TextStyle(color: Color(0xFFE53935), fontSize: 11),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 14,
           vertical: 12,
@@ -478,7 +479,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
-            child: CircularProgressIndicator(color: Color(0xFF6C63FF)),
+            child: CircularProgressIndicator(color: Color(0xFFFF6B2C)),
           );
         }
 
@@ -487,7 +488,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             child: Text(
               'Error loading content:\n${snapshot.error}',
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.redAccent),
+              style: const TextStyle(color: Color(0xFFE53935)),
             ),
           );
         }
@@ -495,21 +496,21 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         final items = snapshot.data ?? [];
 
         if (items.isEmpty) {
-          return Center(
+          return const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   Icons.inbox_outlined,
                   size: 60,
-                  color: Colors.white.withOpacity(0.2),
+                  color: Color(0xFFBFA090),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   'No content yet.\nUse the form above to add some!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.35),
+                    color: Color(0xFF9A7060),
                     fontSize: 14,
                   ),
                 ),
@@ -533,18 +534,18 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1D2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: isCurrentlyEditing
-              ? const Color(0xFF6C63FF)
-              : Colors.white.withOpacity(0.07),
+              ? const Color(0xFFFF6B2C)
+              : const Color(0xFFEDD5C8),
           width: isCurrentlyEditing ? 1.5 : 1,
         ),
         boxShadow: isCurrentlyEditing
             ? [
                 BoxShadow(
-                  color: const Color(0xFF6C63FF).withOpacity(0.2),
+                  color: const Color(0xFFFF6B2C).withValues(alpha: 0.2),
                   blurRadius: 12,
                 ),
               ]
@@ -563,30 +564,30 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
               fit: BoxFit.cover,
               placeholder: (context, url) => Container(
                 height: 180,
-                color: Colors.white.withOpacity(0.05),
+                color: const Color(0xFFFFF0E8),
                 child: const Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xFF6C63FF),
+                    color: Color(0xFFFF6B2C),
                     strokeWidth: 2,
                   ),
                 ),
               ),
               errorWidget: (context, url, error) => Container(
                 height: 180,
-                color: Colors.white.withOpacity(0.05),
-                child: Column(
+                color: const Color(0xFFFFF0E8),
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.broken_image_outlined,
-                      color: Colors.white.withOpacity(0.3),
+                      color: Color(0xFFBFA090),
                       size: 36,
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Text(
                       'Image unavailable',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Color(0xFFBFA090),
                         fontSize: 12,
                       ),
                     ),
@@ -609,7 +610,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       child: Text(
                         item.title,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Color(0xFF1A0A00),
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
@@ -624,12 +625,13 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                         child: Container(
                           padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF6C63FF).withOpacity(0.15),
+                            color:
+                                const Color(0xFFFF6B2C).withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Icon(
                             Icons.edit_outlined,
-                            color: Color(0xFF6C63FF),
+                            color: Color(0xFFFF6B2C),
                             size: 18,
                           ),
                         ),
@@ -645,12 +647,13 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                         child: Container(
                           padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
-                            color: Colors.red.withOpacity(0.12),
+                            color:
+                                const Color(0xFFE53935).withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Icon(
                             Icons.delete_outline,
-                            color: Colors.redAccent,
+                            color: Color(0xFFE53935),
                             size: 18,
                           ),
                         ),
@@ -661,8 +664,8 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                 const SizedBox(height: 8),
                 Text(
                   item.description,
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.55),
+                  style: const TextStyle(
+                    color: Color(0xFF9A7060),
                     fontSize: 13,
                     height: 1.5,
                   ),

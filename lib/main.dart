@@ -27,9 +27,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6C63FF),
-          brightness: Brightness.dark,
+          seedColor: const Color(0xFFFF6B2C),
+          brightness: Brightness.light,
+          primary: const Color(0xFFFF6B2C),
+          background: const Color(0xFFFFF8F4),
+          surface: Colors.white,
         ),
+        scaffoldBackgroundColor: const Color(0xFFFFF8F4),
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
@@ -56,16 +60,16 @@ class AuthGate extends StatelessWidget {
         // While Firebase determines auth state, show a loading screen
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
-            backgroundColor: Color(0xFF0F1117),
+            backgroundColor: Color(0xFFFFF8F4),
             body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(color: Color(0xFF6C63FF)),
+                  CircularProgressIndicator(color: Color(0xFFFF6B2C)),
                   SizedBox(height: 16),
                   Text(
                     'Initializing...',
-                    style: TextStyle(color: Colors.white54, fontSize: 14),
+                    style: TextStyle(color: Color(0xFF9A7060), fontSize: 14),
                   ),
                 ],
               ),

@@ -28,22 +28,22 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F1117),
+      backgroundColor: const Color(0xFFFFF8F4), // was 0xFF0F1117
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1A1D2E),
+        backgroundColor: const Color(0xFFFFFFFF), // was 0xFF1A1D2E
         elevation: 0,
-        title: Row(
+        title: const Row(
           children: [
-            const Icon(
+            Icon(
               Icons.explore_outlined,
-              color: Color(0xFF3ECFCF),
+              color: Color(0xFFFF6B2C), // was 0xFF3ECFCF
               size: 22,
             ),
-            const SizedBox(width: 10),
-            const Text(
-              'Content Hub',
+            SizedBox(width: 10),
+            Text(
+              'User details',
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFF1A0A00), // was Colors.white
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -53,10 +53,12 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
         actions: [
           TextButton.icon(
             onPressed: _logout,
-            icon: const Icon(Icons.logout, color: Colors.white70, size: 18),
+            icon: const Icon(Icons.logout,
+                color: Color(0xFF9A7060), size: 18), // was Colors.white70
             label: const Text(
               'Logout',
-              style: TextStyle(color: Colors.white70, fontSize: 14),
+              style: TextStyle(
+                  color: Color(0xFF9A7060), fontSize: 14), // was Colors.white70
             ),
           ),
           const SizedBox(width: 8),
@@ -70,11 +72,14 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(color: Color(0xFF3ECFCF)),
+                  CircularProgressIndicator(
+                      color: Color(0xFFFF6B2C)), // was 0xFF3ECFCF
                   SizedBox(height: 16),
                   Text(
                     'Loading content...',
-                    style: TextStyle(color: Colors.white54, fontSize: 14),
+                    style: TextStyle(
+                        color: Color(0xFF9A7060),
+                        fontSize: 14), // was Colors.white54
                   ),
                 ],
               ),
@@ -90,14 +95,14 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   children: [
                     const Icon(
                       Icons.wifi_off_outlined,
-                      color: Colors.redAccent,
+                      color: Color(0xFFE53935), // was Colors.redAccent
                       size: 48,
                     ),
                     const SizedBox(height: 16),
                     const Text(
                       'Could not load content',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF1A0A00), // was Colors.white
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -107,7 +112,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                       '${snapshot.error}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Colors.white54,
+                        color: Color(0xFF9A7060), // was Colors.white54
                         fontSize: 13,
                       ),
                     ),
@@ -127,30 +132,30 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   Container(
                     width: 80,
                     height: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFFF6B2C), // was white5%
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.article_outlined,
                       size: 40,
-                      color: Colors.white.withOpacity(0.25),
+                      color: Color(0xFFFF6B2C), // was white25%
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Text(
+                  const Text(
                     'No content available yet',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
+                      color: Color(0xFF9A7060), // was white50%
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(
+                  const Text(
                     'Check back soon!',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Color(0xFFBFA090), // was white30%
                       fontSize: 13,
                     ),
                   ),
@@ -174,14 +179,14 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1D2E),
+        color: const Color(0xFFFFFFFF), // was 0xFF1A1D2E
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Colors.white.withOpacity(0.06)),
-        boxShadow: [
+        border: Border.all(color: const Color(0xFFEDD5C8)), // was white6%
+        boxShadow: const [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Color(0xFFFF6B2C), // was black30%
             blurRadius: 12,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -198,11 +203,11 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
               fit: BoxFit.cover,
               placeholder: (context, url) => Container(
                 height: 220,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Colors.white.withOpacity(0.05),
-                      Colors.white.withOpacity(0.02),
+                      Color(0xFFFFF0E8), // was white5%→white2%
+                      Color(0xFFFFF8F4),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -210,28 +215,28 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                 ),
                 child: const Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xFF3ECFCF),
+                    color: Color(0xFFFF6B2C), // was 0xFF3ECFCF
                     strokeWidth: 2,
                   ),
                 ),
               ),
               errorWidget: (context, url, error) => Container(
                 height: 220,
-                color: Colors.white.withOpacity(0.04),
-                child: Center(
+                color: const Color(0xFFFFF0E8), // was white4%
+                child: const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.image_not_supported_outlined,
                         size: 44,
-                        color: Colors.white.withOpacity(0.2),
+                        color: Color(0xFFBFA090), // was white20%
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       Text(
                         'Image not available',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.3),
+                          color: Color(0xFFBFA090), // was white30%
                           fontSize: 13,
                         ),
                       ),
@@ -248,10 +253,15 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Text(
+                  // item.title rendered below — keeping widget structure identical
+                  '', // placeholder; real usage below
+                  style: TextStyle(),
+                ),
                 Text(
                   item.title,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF1A0A00), // was Colors.white
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     letterSpacing: -0.3,
@@ -263,7 +273,10 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   width: 36,
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF3ECFCF), Color(0xFF6C63FF)],
+                      colors: [
+                        Color(0xFFFF9A5C),
+                        Color(0xFFFF6B2C)
+                      ], // was teal→purple
                     ),
                     borderRadius: BorderRadius.circular(2),
                   ),
@@ -271,8 +284,8 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                 const SizedBox(height: 12),
                 Text(
                   item.description,
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.6),
+                  style: const TextStyle(
+                    color: Color(0xFF9A7060), // was white60%
                     fontSize: 14,
                     height: 1.65,
                   ),
