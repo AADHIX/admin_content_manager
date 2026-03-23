@@ -142,9 +142,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   'Are you sure you want to delete "${item.title}"? This action cannot be undone.',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Color(0xFF9A7060),
-                    fontSize: 14,
-                  ),
+                      color: Color(0xFF000000),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
               const SizedBox(height: 24),
@@ -162,7 +162,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       ),
                       child: const Text(
                         'Cancel',
-                        style: TextStyle(color: Color(0xFF9A7060)),
+                        style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),
@@ -179,7 +181,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       ),
                       child: const Text(
                         'Delete',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
@@ -243,10 +245,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             const SizedBox(width: 10),
             const Flexible(
               child: Text(
-                'Dashboard',
+                'dashboard',
                 style: TextStyle(
                   color: Color(0xFF1A0A00),
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -260,14 +262,17 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 8),
             ),
-            child: Row(
+            child: const Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                Icon(Icons.logout, color: Color(0xFF9A7060), size: 18),
+              children: [
+                Icon(Icons.logout, color: Color(0xFF000000), size: 18),
                 SizedBox(width: 4),
                 Text(
                   'Logout',
-                  style: TextStyle(color: Color(0xFF9A7060), fontSize: 14),
+                  style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -325,7 +330,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     isEditing ? 'Edit Content' : 'Add New Content',
                     style: const TextStyle(
                       color: Color(0xFF1A0A00),
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                     overflow: TextOverflow.ellipsis,
@@ -337,7 +342,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     onPressed: _clearForm,
                     child: const Text(
                       'Cancel',
-                      style: TextStyle(color: Color(0xFF9A7060), fontSize: 13),
+                      style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
@@ -461,24 +469,24 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
       decoration: InputDecoration(
         labelText: label,
         labelStyle: const TextStyle(
-          color: Color(0xFF9A7060),
-          fontSize: 13,
-        ),
+            color: Color(0xFF000000),
+            fontSize: 16,
+            fontWeight: FontWeight.w600),
         hintText: hint,
         hintStyle: const TextStyle(
-          color: Color(0xFFBFA090),
-          fontSize: 14,
-        ),
-        prefixIcon: Icon(icon, color: const Color(0xFF9A7060), size: 20),
+            color: Color(0xFF000000),
+            fontSize: 16,
+            fontWeight: FontWeight.w600),
+        prefixIcon: Icon(icon, color: const Color(0xFF000000), size: 20),
         filled: true,
         fillColor: const Color(0xFFFFF8F4),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFFEDD5C8)),
+          borderSide: const BorderSide(color: Color(0xFF000000)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFFEDD5C8)),
+          borderSide: const BorderSide(color: Color(0xFF000000)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -492,7 +500,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Color(0xFFE53935)),
         ),
-        errorStyle: const TextStyle(color: Color(0xFFE53935), fontSize: 11),
+        errorStyle: const TextStyle(
+            color: Color(0xFFE53935),
+            fontSize: 16,
+            fontWeight: FontWeight.w600),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 14,
           vertical: 12,
@@ -543,7 +554,7 @@ class _ContentListView extends StatelessWidget {
                 Icon(
                   Icons.inbox_outlined,
                   size: 60,
-                  color: Color(0xFFBFA090),
+                  color: Color(0xFF000000),
                 ),
                 SizedBox(height: 12),
                 Padding(
@@ -636,7 +647,7 @@ class _ContentListView extends StatelessWidget {
                       'Image unavailable',
                       style: TextStyle(
                         color: Color(0xFFBFA090),
-                        fontSize: 12,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -716,7 +727,7 @@ class _ContentListView extends StatelessWidget {
                 Text(
                   item.description,
                   style: const TextStyle(
-                    color: Color(0xFF9A7060),
+                    color: Color(0xFF000000),
                     fontSize: 13,
                     height: 1.5,
                   ),

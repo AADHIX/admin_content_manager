@@ -123,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   'Create Account',
                   style: TextStyle(
                     color: Color(0xFF1A0A00), // was Colors.white
-                    fontSize: 26,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     letterSpacing: -0.5,
                   ),
@@ -132,7 +132,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const Text(
                   'Join us today',
                   style: TextStyle(
-                    color: Color(0xFF9A7060), // was Colors.white
+                    color: Color(0xFF000000), // was Colors.white
                     fontSize: 14,
                   ),
                 ),
@@ -172,7 +172,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
                             color:
-                                const Color(0xFF9A7060), // was Colors.white54
+                                const Color(0xFF000000), // was Colors.white54
                             size: 20,
                           ),
                           onPressed: () => setState(
@@ -318,7 +318,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     const Text(
                       'Already have an account? ',
                       style: TextStyle(
-                        color: Color(0xFF9A7060), // was Colors.white
+                        color: Color(0xFF000000), // was Colors.white
                         fontSize: 14,
                       ),
                     ),
@@ -328,8 +328,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         'Sign In',
                         style: TextStyle(
                           color: Color(0xFFFF6B2C), // was 0xFF6C63FF
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ),
@@ -360,7 +360,7 @@ class _SignupScreenState extends State<SignupScreen> {
           label,
           style: const TextStyle(
             color: Color(0xFF1A0A00), // was Colors.white.withOpacity(0.7)
-            fontSize: 13,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -375,11 +375,11 @@ class _SignupScreenState extends State<SignupScreen> {
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: const TextStyle(
-              color: Color(0xFF9A7060), // was Colors.white.withOpacity(0.25)
+              color: Color(0xFF000000), // was Colors.white.withOpacity(0.25)
               fontSize: 15,
             ),
             prefixIcon: const Icon(Icons.email_outlined, // icon color below
-                color: Color(0xFF9A7060),
+                color: Color(0xFF000000),
                 size: 20), // was Colors.white38
             suffixIcon: suffixIcon,
             filled: true,

@@ -41,11 +41,11 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
             ),
             SizedBox(width: 10),
             Text(
-              'User details',
+              'Items',
               style: TextStyle(
                 color: Color(0xFF1A0A00), // was Colors.white
                 fontSize: 18,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -54,11 +54,13 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
           TextButton.icon(
             onPressed: _logout,
             icon: const Icon(Icons.logout,
-                color: Color(0xFF9A7060), size: 18), // was Colors.white70
+                color: Color(0xFF000000), size: 18), // was Colors.white70
             label: const Text(
               'Logout',
               style: TextStyle(
-                  color: Color(0xFF9A7060), fontSize: 14), // was Colors.white70
+                  color: Color(0xFF000000),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600), // was Colors.white70
             ),
           ),
           const SizedBox(width: 8),
@@ -78,7 +80,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   Text(
                     'Loading content...',
                     style: TextStyle(
-                        color: Color(0xFF9A7060),
+                        color: Color(0xFF000000),
                         fontSize: 14), // was Colors.white54
                   ),
                 ],
@@ -112,8 +114,8 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                       '${snapshot.error}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Color(0xFF9A7060), // was Colors.white54
-                        fontSize: 13,
+                        color: Color(0xFF000000), // was Colors.white54
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -146,7 +148,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   const Text(
                     'No content available yet',
                     style: TextStyle(
-                      color: Color(0xFF9A7060), // was white50%
+                      color: Color(0xFF000000), // was white50%
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -155,8 +157,8 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                   const Text(
                     'Check back soon!',
                     style: TextStyle(
-                      color: Color(0xFFBFA090), // was white30%
-                      fontSize: 13,
+                      color: Color(0xFF000000), // was white30%
+                      fontSize: 16, fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
@@ -181,7 +183,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
       decoration: BoxDecoration(
         color: const Color(0xFFFFFFFF), // was 0xFF1A1D2E
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: const Color(0xFFEDD5C8)), // was white6%
+        border: Border.all(color: const Color(0xFF000000)), // was white6%
         boxShadow: const [
           BoxShadow(
             color: Color(0xFFFF6B2C), // was black30%
@@ -230,14 +232,14 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                       Icon(
                         Icons.image_not_supported_outlined,
                         size: 44,
-                        color: Color(0xFFBFA090), // was white20%
+                        color: Color(0xFF000000), // was white20%
                       ),
                       SizedBox(height: 10),
                       Text(
                         'Image not available',
                         style: TextStyle(
-                          color: Color(0xFFBFA090), // was white30%
-                          fontSize: 13,
+                          color: Color(0xFF000000), // was white30%
+                          fontSize: 16,
                         ),
                       ),
                     ],
@@ -285,7 +287,7 @@ class _UserDashboardScreenState extends State<UserDashboardScreen> {
                 Text(
                   item.description,
                   style: const TextStyle(
-                    color: Color(0xFF9A7060), // was white60%
+                    color: Color(0xFF000000), // was white60%
                     fontSize: 14,
                     height: 1.65,
                   ),

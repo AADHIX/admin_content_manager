@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen>
   static const kBackground = Color(0xFFFFF8F4);
   static const kSurface = Color(0xFFFFFFFF);
   static const kText = Color(0xFF1A0A00);
-  static const kTextMuted = Color(0xFF9A7060);
+  static const kTextMuted = Color(0xFF000000);
   static const kBorder = Color(0xFFEDD5C8);
 
   @override
@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen>
                           'Login',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 40,
+                            fontSize: 38,
                             fontWeight: FontWeight.w800,
                             letterSpacing: -1.2,
                             height: 1.0,
@@ -137,11 +137,11 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                         SizedBox(height: 6),
                         Text(
-                          'Welcome Back',
+                          'Welcome back ',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ],
@@ -355,7 +355,7 @@ class _OrangeTextField extends StatelessWidget {
 
   static const kOrange = Color(0xFFFF6B2C);
   static const kText = Color(0xFF1A0A00);
-  static const kTextMuted = Color(0xFF9A7060);
+  static const kTextMuted = Color(0xFF000000);
   static const kBorder = Color(0xFFEDD5C8);
 
   const _OrangeTextField({
@@ -391,12 +391,12 @@ class _OrangeTextField extends StatelessWidget {
           validator: validator,
           style: const TextStyle(
             color: kText,
-            fontSize: 15,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: const TextStyle(color: kTextMuted, fontSize: 15),
+            hintStyle: const TextStyle(color: kTextMuted, fontSize: 16),
             prefixIcon: Icon(icon, color: kTextMuted, size: 20),
             suffixIcon: suffixIcon != null
                 ? Padding(
@@ -493,7 +493,7 @@ class _OrangeButton extends StatelessWidget {
                   height: 22,
                   child: CircularProgressIndicator(
                     color: Colors.white,
-                    strokeWidth: 2.5,
+                    strokeWidth: 3.5,
                   ),
                 )
               : Text(
@@ -535,7 +535,7 @@ class _ErrorBanner extends StatelessWidget {
             child: Text(
               message,
               style: const TextStyle(
-                color: Color(0xFFB71C1C),
+                color: Color(0xFF000000),
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
